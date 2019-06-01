@@ -52,7 +52,7 @@ Observe that the data set has 122 rows and 12 columns.
 Each row contains the following information on a single university:
 
 | Column Name         |  Description |
-:--------------:|:-------------------------------------:
+|--------------|-------------------------------------|
 location | suburban, urban, small-city, or small-town setting 
 control  | public or private university 
 students | number of students (thousands) 
