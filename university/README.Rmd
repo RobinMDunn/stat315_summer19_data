@@ -1,0 +1,67 @@
+---
+title: "README: University Data Set"
+output: 
+  html_document:
+    toc:  true
+    toc_float:  true
+    code_folding:  show
+---
+
+```{r, include = FALSE}
+###########################
+# STYLE EDITS: IGNORE THIS
+###########################
+# normally you'll want to include this with the libraries at the beginning of your document
+knitr::opts_chunk$set(message = FALSE) # include this if you don't want markdown to knit messages
+knitr::opts_chunk$set(warning = FALSE) # include this if you don't want markdown to knit warnings
+```
+
+This data set is a modified version of the University data set found at 
+http://archive.ics.uci.edu/ml/datasets/university. 
+
+The data were provided by Steve Souders.
+
+The information below will be repeated on the exam.
+
+# Read in data
+
+To read in the data, type the following:
+
+```{r}
+library(tidyverse)
+
+university <- read_csv("https://raw.githubusercontent.com/RobinMDunn/stat315_summer19_data/master/university/university.csv")
+```
+
+Use the following code to re-order the categories of students and apps:
+
+```{r}
+university <- university %>%
+  mutate(students = factor(students,
+                           levels = c("<5", "5-10", "10-15", "15-20", "20+"),
+                           labels = c("<5", "5-10", "10-15", "15-20", "20+")),
+         apps = factor(apps,
+                       levels = c("<4", "4-7", "7-10", "10-13", "13-17", "17+"),
+                       labels = c("<4", "4-7", "7-10", "10-13", "13-17", "17+")))
+```
+
+# Variables
+
+Observe that the data set has 122 rows and 12 columns.
+
+Each row contains the following information on a single university:
+
+| Column Name         |  Description |
+:--------------:|:-------------------------------------:
+location | suburban, urban, small-city, or small-town setting 
+control  | public or private university 
+students | number of students (thousands) 
+male_female | number of male students divided by number of female students
+student_fac | number of students divided by number of faculty members
+SAT_verbal | median SAT verbal score of students
+SAT_math | median SAT math score of students
+apps | number of applications received by university (thousands)
+percent_admit | percentage of applicants who are admitted
+academics | scale from 1-5 (discrete, categorical) rating the quality of academics
+social | scale from 1-5 rating the quality of university social life
+quality_life | scale from 1-5 rating the overall quality of life at the university
