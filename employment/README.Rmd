@@ -1,0 +1,51 @@
+---
+title: "README: Employment Data Set"
+output: 
+  html_document:
+    toc:  true
+    toc_float:  true
+    code_folding:  show
+---
+
+```{r, include = FALSE}
+###########################
+# STYLE EDITS: IGNORE THIS
+###########################
+# normally you'll want to include this with the libraries at the beginning of your document
+knitr::opts_chunk$set(message = FALSE) # include this if you don't want markdown to knit messages
+knitr::opts_chunk$set(warning = FALSE) # include this if you don't want markdown to knit warnings
+```
+
+We will work with a data set on employment rates and related indicators for the 28 nations in the European Union.  This data set is a subset of the Organisation for Economic Co-operation and Development (OECD)'s data set found at 
+https://stats.oecd.org/. Specifically, you could find the original data by clicking Labour > World Indicators of Skills for Employment.
+
+# Read in data
+
+To read in the data, type the following:
+
+```{r}
+library(tidyverse)
+
+employment <- read_csv("https://raw.githubusercontent.com/RobinMDunn/stat315_summer19_data/master/employment/employment.csv")
+```
+
+
+# Variables
+
+Observe that the data set has 252 rows and 11 columns.
+
+Each row contains the following information on a single nation in a single year:
+
+| Column Name         |  Description |
+|--------------|-------------------------------------|
+country | country (one of 28 European Union nations)
+year  | year (between 2003 and 2011)
+empl_agri | percent of labor force employed in agriculture sector
+empl_indu | percent of labor force employed in industry
+empl_serv | percent of labor force employed in service sector
+self_empl | percent of labor force that is self-employed
+unemp_youth | youth unemployment percentage
+unemp_adult | adult unemployment percentage
+urban | percent of population living in urban areas
+mobile | number of mobile phones per 100 inhabitants
+internet | percent of households with access to Internet
